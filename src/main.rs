@@ -10,6 +10,7 @@ fn main() {
     match get_chapter_number() {
         1 => chapter_1(),
         2 => chapter_2(),
+        3 => chapter_3(),
         unknown => panic!("Function for chapter {} doesn't exist", unknown),
     }
 }
@@ -61,4 +62,40 @@ fn chapter_2() {
             },
         }
     }
+}
+
+fn chapter_3() {
+    let x = 5;
+
+    let x = x + 1;
+
+    {
+        let x = x * 2;
+        println!("The value of x in the inner scope is: {x}");
+    }
+
+    println!("The value of x is: {x}");
+
+    let tup = (500, 6.4, 1);
+
+    let (_, y, _) = tup;
+
+    println!("The value of y is: {y}");
+
+    let condition = true;
+    let number = if condition { 5 } else { 6 };
+
+    println!("The value of number is: {number}");
+
+    let mut counter = 0;
+
+    let result = loop {
+        counter += 1;
+
+        if counter == 10 {
+            break counter * 2;
+        }
+    };
+
+    println!("The result is {result}");
 }
