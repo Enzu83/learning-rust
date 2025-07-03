@@ -11,6 +11,7 @@ fn main() {
         1 => chapter_1(),
         2 => chapter_2(),
         3 => chapter_3(),
+        4 => chapter_4(),
         unknown => panic!("Function for chapter {} doesn't exist", unknown),
     }
 }
@@ -98,4 +99,25 @@ fn chapter_3() {
     };
 
     println!("The result is {result}");
+}
+
+fn chapter_4() {
+    let my_string = String::from("hello world");
+
+    let word = first_word(&my_string);
+
+    println!("First word '{}'.", word);
+
+
+    fn first_word(s: &str) -> &str {
+        let bytes = s.as_bytes();
+
+        for (i, &item) in bytes.iter().enumerate() {
+            if item == b' ' {
+                return &s[0..i];
+            }
+        }
+
+        &s[..]
+    }
 }
